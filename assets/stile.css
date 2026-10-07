@@ -1,6 +1,6 @@
 /* Bottega nel Web — foglio di stile condiviso */
 @font-face{font-family:"Hanken Grotesk";src:url("font/HankenGrotesk-var.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
-:root{--testo:#15161A;--t2:#4A4B51;--t3:#66666D;--t4:#85858B;--fondo:#fff;--alt:#F6F6F4;--linea:#EDEDEA;--linea2:#E3E3E0;--accento:#0E6B4D;--w:1120px;--font:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif}
+:root{--testo:#15161A;--t2:#4A4B51;--t3:#66666D;--t4:#6E6E74;--fondo:#fff;--alt:#F6F6F4;--linea:#EDEDEA;--linea2:#E3E3E0;--accento:#0E6B4D;--w:1120px;--font:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif}
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{margin:0;background:var(--fondo);color:var(--testo);font:400 17px/1.6 var(--font);-webkit-font-smoothing:antialiased}
