@@ -45,17 +45,17 @@
 <h1 class="h1p">Chiedi la tua bozza gratis.</h1>
 <p class="lead2">Scrivimi due righe sulla tua attività. Ti rispondo io.</p>
 <ol class="tre"><li><b>Ti scrivo io,</b> <span>con due o tre domande sulla tua attività.</span></li><li><b>In 3 giorni hai la bozza,</b> <span>gratis.</span></li><li><b>Decidi tu.</b> <span>Se non ti piace, finisce lì.</span></li></ol>
-<p class="preferisci">Preferisci l'email?<br><a class="link" style="min-height:0" href="mailto:andrea.sitiwebb@gmail.com">andrea.sitiwebb@gmail.com</a></p>
+<p class="preferisci">Preferisci l'email?<br><a class="link" href="mailto:andrea.sitiwebb@gmail.com">andrea.sitiwebb@gmail.com</a></p>
 <!-- DA CONFERMARE: nessun numero WhatsApp pubblico finché Andrea non lo dà (vedi LANCIO) -->
 </div>
-<form class="modulo" id="modulo" action="../grazie/" method="get" novalidate data-mail="andrea.sitiwebb@gmail.com">
+<form class="modulo" id="modulo" action="../grazie/" method="post" novalidate data-mail="andrea.sitiwebb@gmail.com">
 <label for="attivita">Nome della tua attività<input type="text" id="attivita" name="attivita" placeholder="Es. Falegnameria Rossi" autocomplete="organization"><span class="errore" id="e-attivita" role="alert"></span></label>
 <div class="due"><label for="citta">Città<input type="text" id="citta" name="citta" placeholder="Es. Bergamo" autocomplete="address-level2"><span class="errore" id="e-citta" role="alert"></span></label><label for="recapito">Email o telefono<input type="text" id="recapito" name="recapito" placeholder="Dove ti rispondo" autocomplete="email"><span class="errore" id="e-recapito" role="alert"></span></label></div>
 <label for="cosafai">Cosa fai<input type="text" id="cosafai" name="cosafai" placeholder="Es. mobili su misura e restauro"><span class="errore" id="e-cosafai" role="alert"></span></label>
 <label for="sito">Hai già un sito? Facoltativo<input type="text" id="sito" name="sito" placeholder="Incolla qui il link" inputmode="url"></label>
 <div class="esca" aria-hidden="true"><label>Non compilare<input type="text" name="bot-field" tabindex="-1" autocomplete="off"></label></div>
 <button type="submit">Chiedi la bozza gratis</button>
-<p class="esito" id="esito" role="alert"></p>
+<p class="esito" id="esito" role="status"></p>
 <p class="privacy">Uso i tuoi dati solo per risponderti. <a href="../privacy/">Leggi l'informativa privacy.</a></p>
 </form>
 </div></section>
@@ -71,7 +71,7 @@ if(f.elements["bot-field"].value)return;if(bad){bad.focus();return}
 var s=f.elements.sito.value.trim();
 var body="Nome attività: "+d.attivita+"\nCittà: "+d.citta+"\nEmail o telefono: "+d.recapito+"\nCosa faccio: "+d.cosafai+(s?"\nSito attuale: "+s:"");
 location.href="mailto:"+f.dataset.mail+"?subject="+encodeURIComponent("Bozza gratis: "+d.attivita)+"&body="+encodeURIComponent(body);
-document.getElementById("esito").textContent="";});})();
+var es=document.getElementById("esito");es.innerHTML="Si è aperta la tua app di posta con il messaggio pronto: premi Invia. Non si è aperta? Scrivimi a <a href=\"mailto:"+f.dataset.mail+"\">"+f.dataset.mail+"</a>.";});})();
 </script>
 </main>
 <footer class="piede"><div class="wrap">
@@ -88,5 +88,6 @@ a.addEventListener("click",function(){t(true)});c.addEventListener("click",funct
 document.addEventListener("keydown",function(e){if(e.key==="Escape"&&m.classList.contains("aperto"))t(false)});
 m.addEventListener("click",function(e){if(e.target.closest("a"))t(false)});})();
 </script>
+
 </body>
 </html>
