@@ -414,3 +414,21 @@ ol,ul{padding:0;list-style:none}
 @media (max-width:900px){.sez-g{gap:12px 24px;margin-top:24px}.sub{font-size:18px}}
 @media (max-width:700px){.pacchetto .cons[aria-hidden]{display:none}.pacchetti{gap:16px;margin-top:24px}.pacchetto .cifra{margin-top:12px;font-size:56px}.pacchetto .rg+.btn,.pacchetto ul+.btn{margin-top:20px}.riga-anni{margin-top:24px}.vai-link{margin-top:16px}}
 @media (max-width:560px){.passi{margin-top:20px}.passi li{padding:14px 0}}
+
+/* domande in grassetto, intro tre anni */
+.domande summary,.domande-lista h3{font-family:var(--sans);font-weight:700;letter-spacing:-.005em}
+.domande summary{font-size:18px}
+.domande-lista h3{font-size:18px}
+.intro-tre{margin-top:16px;max-width:64ch;color:var(--t2)}
+
+.nota-esempi{padding:0 24px clamp(48px,6vw,72px);font-size:15px;color:var(--t3)}
+.nota-esempi .wrap{display:block}
+
+/* modulo: campi di testo lungo */
+.modulo textarea{border:1px solid var(--t3);border-radius:12px;padding:12px 16px;font:inherit;font-weight:400;font-size:16px;background:#fff;color:var(--testo);resize:vertical;min-height:84px}
+.modulo textarea[aria-invalid="true"]{border-color:#B3261E}
+
+.serve-c{margin-top:56px}
+.nota-esempi{padding-top:28px}
+
+.vai-link .link+.link{margin-left:28px}
