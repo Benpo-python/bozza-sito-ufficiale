@@ -60,9 +60,9 @@
 <input type="hidden" name="access_key" value="ae239eec-7b14-46b5-bcc5-e58ee668ce88"><input type="hidden" name="subject" value="Richiesta di bozza gratis dal sito"><input type="hidden" name="from_name" value="La bottega del web, modulo del sito"><input type="hidden" name="redirect" value="https://benpo-python.github.io/bozza-sito-ufficiale/grazie/">
 <label for="attivita">Nome della tua attività<input type="text" id="attivita" name="attivita" placeholder="Es. Falegnameria Rossi" required aria-required="true" autocomplete="organization"><span class="errore" id="e-attivita" role="alert"></span></label>
 <div class="due"><label for="citta">Città<input type="text" id="citta" name="citta" placeholder="Es. Bergamo" required aria-required="true" autocomplete="address-level2"><span class="errore" id="e-citta" role="alert"></span></label><label for="recapito">Email o telefono<input type="text" id="recapito" name="recapito" placeholder="Dove ti rispondo" required aria-required="true" autocomplete="email"><span class="errore" id="e-recapito" role="alert"></span></label></div>
-<label for="indirizzo">Indirizzo Facoltativo<input type="text" id="indirizzo" name="indirizzo" placeholder="Via e numero civico" autocomplete="street-address"><span class="errore" id="e-indirizzo" role="alert"></span></label>
-<label for="orari">Orari Facoltativo<textarea id="orari" name="orari" rows="3" placeholder="Es. lun-ven 8-17, sabato chiuso"></textarea><span class="errore" id="e-orari" role="alert"></span></label>
-<label for="cosafai">Cosa fai Facoltativo<textarea id="cosafai" name="cosafai" rows="3" placeholder="Es. mobili su misura e restauro. Aggiungi qualsiasi informazione utile a descrivere la tua attività"></textarea><span class="errore" id="e-cosafai" role="alert"></span></label>
+<label for="indirizzo">Indirizzo<input type="text" id="indirizzo" name="indirizzo" placeholder="Via e numero civico" required aria-required="true" autocomplete="street-address"><span class="errore" id="e-indirizzo" role="alert"></span></label>
+<label for="orari">Orari<textarea id="orari" name="orari" rows="3" placeholder="Es. lun-ven 8-17, sabato chiuso" required aria-required="true"></textarea><span class="errore" id="e-orari" role="alert"></span></label>
+<label for="cosafai">Cosa fai<textarea id="cosafai" name="cosafai" rows="3" placeholder="Es. mobili su misura e restauro. Aggiungi qualsiasi informazione utile a descrivere la tua attività" required aria-required="true"></textarea><span class="errore" id="e-cosafai" role="alert"></span></label>
 <label for="sito">Hai già un sito? Facoltativo<input type="text" id="sito" name="sito" placeholder="Incolla qui il link" inputmode="url"></label>
 <input type="checkbox" name="botcheck" class="esca" tabindex="-1" autocomplete="off" aria-hidden="true">
 <button type="submit">Chiedi la bozza gratis</button>
@@ -72,16 +72,16 @@
 </div></section>
 <script>
 (function(){var f=document.getElementById("modulo");f.noValidate=true;
-var msg={attivita:"Scrivi il nome della tua attività.",citta:"Scrivi la città.",recapito:"Controlla l'email o il numero: così non riesco a risponderti."};
+var msg={attivita:"Scrivi il nome della tua attività.",citta:"Scrivi la città.",indirizzo:"Scrivi l'indirizzo.",orari:"Scrivi gli orari.",cosafai:"Scrivi cosa fai.",recapito:"Controlla l'email o il numero: così non riesco a risponderti."};
 function ok(id,v){v=v.trim();if(!v)return false;if(id!=="recapito")return true;return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)||/^\d{6,15}$/.test(v.replace(/[\s.\-\/()]/g,"").replace(/^\+/,""))}
 var es=document.getElementById("esito"),bt=f.querySelector("button");
 function errore(){es.innerHTML='Il messaggio non è partito. Riprova, oppure scrivimi a <a href="mailto:andrea.sitiwebb@gmail.com">andrea.sitiwebb@gmail.com</a>.';bt.disabled=false}
 f.addEventListener("submit",function(e){var bad=null,d={};
-["attivita","citta","recapito"].forEach(function(id){var i=f.elements[id],g=ok(id,i.value);d[id]=i.value.trim();
+["attivita","citta","indirizzo","recapito","orari","cosafai"].forEach(function(id){var i=f.elements[id],g=ok(id,i.value);d[id]=i.value.trim();
 document.getElementById("e-"+id).textContent=g?"":msg[id];i.setAttribute("aria-invalid",g?"false":"true");if(!g&&!bad)bad=i});
 if(bad){e.preventDefault();bad.focus();return}
 if(f.elements.botcheck&&f.elements.botcheck.checked){e.preventDefault();return}
-var cosa=f.elements.cosafai.value.trim(),s=f.elements.sito.value.trim(),ind=f.elements.indirizzo.value.trim(),ora=f.elements.orari.value.trim();
+var cosa=d.cosafai,s=f.elements.sito.value.trim(),ind=d.indirizzo,ora=d.orari;
 if(f.elements.access_key){e.preventDefault();bt.disabled=true;es.textContent="Invio in corso…";
 var o={access_key:f.elements.access_key.value,subject:f.elements.subject.value,from_name:f.elements.from_name.value,attivita:d.attivita,citta:d.citta,recapito:d.recapito};
 if(cosa)o.cosafai=cosa;if(ind)o.indirizzo=ind;if(ora)o.orari=ora;if(s)o.sito=s;if(/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(d.recapito))o.replyto=d.recapito;
