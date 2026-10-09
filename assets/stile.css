@@ -442,3 +442,28 @@ ol,ul{padding:0;list-style:none}
 .mac-schermo img{position:relative;display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top;border-radius:7px 7px 2px 2px;background:#fff}
 .mac-base{position:relative;height:15px;margin:-1px -8% 0;background:linear-gradient(#e9eaed 0,#d3d4d9 45%,#b9babf 100%);border-radius:1px 1px 16px 16px/1px 1px 14px 14px;box-shadow:inset 0 1px 0 #f7f7f8,inset 0 -1px 0 #9c9da3}
 .mac-base::before{content:"";position:absolute;top:0;left:50%;width:17%;height:6px;margin-left:-8.5%;background:linear-gradient(#a6a7ad,#c8c9ce);border-radius:0 0 11px 11px}
+
+/* ---- layout in colonna: titolo sopra, testo sotto, a tutta larghezza ---- */
+.sez-g{display:block;margin-top:clamp(28px,3vw,40px)}
+.sez-t,.sez-c{grid-column:auto}
+.sez-c{margin-top:clamp(16px,2vw,24px)}
+.sez-t .sub,.sez-c .sub,.sez-c .p,.chi .p,.sub{max-width:none}
+.sez-g .sub{font-size:20px}
+.riga-anni{max-width:none;font-size:19px;line-height:1.6}
+.chi .p{font-size:20px}
+/* il problema */
+.problema .sez-t .h2{max-width:21ch}
+.problema .sez-c.due,.problema .due{display:grid;grid-template-columns:1fr 1fr;gap:20px 64px;max-width:none;grid-column:auto}
+.problema .due p{font-size:19px;line-height:1.6;color:var(--t2)}
+.dato{display:block;margin-top:clamp(44px,5vw,72px);padding-top:clamp(24px,3vw,36px);border-top:1px solid var(--linea-forte)}
+.num{display:block;grid-column:auto;font-size:clamp(72px,12.2vw,176px);line-height:.92}
+.dato-t{margin-top:clamp(18px,2vw,28px);padding-bottom:0}
+.did{max-width:none;font-size:clamp(19px,1.8vw,24px);line-height:1.4;color:var(--testo)}
+.dato-t .fonte{margin-top:10px}
+@media (max-width:900px){.problema .due{grid-template-columns:1fr;gap:16px}}
+/* pagine interne: titolo sopra e testo sotto */
+.mano{display:block}
+.mano>div:first-child{margin-bottom:clamp(20px,2.5vw,32px)}
+.mano .chisono{max-width:none}
+.chisono p{font-size:19px;line-height:1.6}
+.mano-lista{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));column-gap:40px}
