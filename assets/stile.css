@@ -505,3 +505,25 @@ ol,ul{padding:0;list-style:none}
 .prob-dato .dato-t,.prob-dato .num{grid-column:auto}
 
 .intro-tre{max-width:none}
+
+/* riquadri dei pacchetti allineati: stessa altezza e pulsanti sulla stessa riga */
+.pacchetti{align-items:stretch}
+.pacchetto{display:flex;flex-direction:column}
+.pacchetto .rg{margin-bottom:24px}
+.pacchetto ul{margin-bottom:28px}
+.pacchetto .btn{margin-top:auto}
+.pacchetto .btn,.pacchetto .rg+.btn,.pacchetto ul+.btn{margin-top:auto!important}
+
+/* titoli di lunghezza diversa: le descrizioni partono sempre alla stessa altezza */
+@supports (grid-template-rows:subgrid){
+  @media (min-width:561px){
+    .passi li{display:grid;grid-template-rows:subgrid;grid-row:span 4;row-gap:0}
+    .passi li::before{margin-bottom:20px}
+  }
+  @media (min-width:701px){
+    .dopo-c,.riga-t{display:grid;grid-template-rows:subgrid;grid-row:span 2;row-gap:0}
+    .dopo,.mano-lista{row-gap:0}
+    .dopo-c{margin-bottom:32px}
+    .mano-lista .riga-t{margin-bottom:0}
+  }
+}
