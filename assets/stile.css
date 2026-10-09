@@ -433,11 +433,12 @@ ol,ul{padding:0;list-style:none}
 
 .vai-link .link+.link{margin-left:28px}
 
-/* cornice da portatile per i siti mostrati su computer */
+/* cornice da portatile (MacBook) per i siti mostrati su computer */
 .esempio .tel:has(.mac){display:block}
-.mac{width:100%;max-width:560px;margin:0 auto}
-.mac-schermo{background:#0E0E10;border-radius:16px 16px 6px 6px;padding:12px 12px 14px;position:relative;box-shadow:0 30px 50px -28px rgba(21,22,26,.45)}
-.mac-schermo::before{content:"";position:absolute;top:5px;left:50%;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:#2a2a2e}
-.mac-schermo img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top;border-radius:3px;background:#fff}
-.mac-base{height:14px;margin:0 -6%;background:linear-gradient(#d9d9dc,#b9b9be);border-radius:0 0 18px 18px;position:relative}
-.mac-base::before{content:"";position:absolute;top:0;left:50%;width:18%;height:5px;margin-left:-9%;background:#9d9da2;border-radius:0 0 8px 8px}
+.mac{width:100%;max-width:600px;margin:0 auto;position:relative;filter:drop-shadow(0 26px 22px rgba(21,22,26,.22))}
+.mac-schermo{position:relative;background:#0A0A0B;border-radius:18px 18px 3px 3px;padding:10px 10px 12px;box-shadow:inset 0 0 0 1.5px #3b3b40,inset 0 0 0 3px #0A0A0B}
+.mac-schermo::before{content:"";position:absolute;z-index:2;top:10px;left:50%;width:13%;height:12px;margin-left:-6.5%;background:#0A0A0B;border-radius:0 0 11px 11px}
+.mac-schermo::after{content:"";position:absolute;z-index:3;top:12px;left:50%;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#2f3a4a,#10131a 70%)}
+.mac-schermo img{position:relative;display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top;border-radius:7px 7px 2px 2px;background:#fff}
+.mac-base{position:relative;height:15px;margin:-1px -8% 0;background:linear-gradient(#e9eaed 0,#d3d4d9 45%,#b9babf 100%);border-radius:1px 1px 16px 16px/1px 1px 14px 14px;box-shadow:inset 0 1px 0 #f7f7f8,inset 0 -1px 0 #9c9da3}
+.mac-base::before{content:"";position:absolute;top:0;left:50%;width:17%;height:6px;margin-left:-8.5%;background:linear-gradient(#a6a7ad,#c8c9ce);border-radius:0 0 11px 11px}
