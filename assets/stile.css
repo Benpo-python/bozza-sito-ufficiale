@@ -521,9 +521,12 @@ ol,ul{padding:0;list-style:none}
     .passi li::before{margin-bottom:20px}
   }
   @media (min-width:701px){
-    .dopo-c,.riga-t{display:grid;grid-template-rows:subgrid;grid-row:span 2;row-gap:0}
+    .dopo-c{display:grid;grid-template-rows:subgrid;grid-row:span 3;row-gap:0}
+    .riga-t{display:grid;grid-template-rows:subgrid;grid-row:span 2;row-gap:0}
     .dopo,.mano-lista{row-gap:0}
     .dopo-c{margin-bottom:32px}
     .mano-lista .riga-t{margin-bottom:0}
   }
 }
+
+.tre-anni .dopo{margin-top:36px}
