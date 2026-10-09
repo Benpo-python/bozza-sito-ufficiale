@@ -467,3 +467,6 @@ ol,ul{padding:0;list-style:none}
 .mano .chisono{max-width:none}
 .chisono p{font-size:19px;line-height:1.6}
 .mano-lista{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));column-gap:40px}
+
+.esempio{overflow-x:clip}
+.mac-base{margin-left:-6%;margin-right:-6%}
