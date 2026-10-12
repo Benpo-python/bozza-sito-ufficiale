@@ -55,7 +55,7 @@
 <li><span class="nn">5</span><span><b>Il sito vecchio</b><small>Solo se ce l'hai: incolla il link.</small></span></li>
 </ol></div>
 <p style="margin-top:28px"><a class="btn btn-wa" href="https://wa.me/393755681862?text=Ciao%20Andrea%2C%20vorrei%20la%20bozza%20gratis%20per%E2%80%A6">Scrivimi su WhatsApp</a></p>
-<p class="preferisci">Preferisci l'email?<br><a class="link" href="mailto:andrea.sitiwebb@gmail.com">andrea.sitiwebb@gmail.com</a></p>
+<p class="preferisci">Preferisci l'email?<br><a class="link" href="mailto:andreasiti@labottegadelweb.it">andreasiti@labottegadelweb.it</a></p>
 </div>
 <form class="modulo" id="modulo" action="https://api.web3forms.com/submit" method="post" data-endpoint="https://api.web3forms.com/submit" data-grazie="../grazie/">
 <input type="hidden" name="access_key" value="ae239eec-7b14-46b5-bcc5-e58ee668ce88"><input type="hidden" name="subject" value="Richiesta di bozza gratis dal sito"><input type="hidden" name="from_name" value="La bottega del web, modulo del sito"><input type="hidden" name="redirect" value="https://labottegadelweb.it/grazie/">
@@ -76,7 +76,7 @@
 var msg={attivita:"Scrivi il nome della tua attività.",citta:"Scrivi la città.",indirizzo:"Scrivi l'indirizzo.",orari:"Scrivi gli orari.",cosafai:"Scrivi cosa fai.",recapito:"Controlla l'email o il numero: così non riesco a risponderti."};
 function ok(id,v){v=v.trim();if(!v)return false;if(id!=="recapito")return true;return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)||/^\d{6,15}$/.test(v.replace(/[\s.\-\/()]/g,"").replace(/^\+/,""))}
 var es=document.getElementById("esito"),bt=f.querySelector("button");
-function errore(){es.innerHTML='Il messaggio non è partito. Riprova, oppure scrivimi a <a href="mailto:andrea.sitiwebb@gmail.com">andrea.sitiwebb@gmail.com</a>.';bt.disabled=false}
+function errore(){es.innerHTML='Il messaggio non è partito. Riprova, oppure scrivimi a <a href="mailto:andreasiti@labottegadelweb.it">andreasiti@labottegadelweb.it</a>.';bt.disabled=false}
 f.addEventListener("submit",function(e){var bad=null,d={};
 ["attivita","citta","indirizzo","recapito","orari","cosafai"].forEach(function(id){var i=f.elements[id],g=ok(id,i.value);d[id]=i.value.trim();
 document.getElementById("e-"+id).textContent=g?"":msg[id];i.setAttribute("aria-invalid",g?"false":"true");if(!g&&!bad)bad=i});
@@ -91,7 +91,7 @@ fetch(f.dataset.endpoint,{method:"POST",headers:{"Content-Type":"application/jso
 });})();</script>
 </main>
 <footer class="piede"><div class="wrap">
-<div class="riga1"><div class="marchio"><a class="logo" href="../"><svg width="20" height="20" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 29V15a11 11 0 0 1 22 0v14" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M9.8 17.2a9.6 9.6 0 0 1 12.4 0M12.4 21a5.6 5.6 0 0 1 7.2 0" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><circle cx="16" cy="25.2" r="1.9" fill="currentColor"/></svg><span>La bottega del web</span></a><p>Siti per botteghe, artigiani e negozi.</p><p>La bottega del web è il lavoro di Andrea Benporat, Milano.</p><a class="mail" href="mailto:andrea.sitiwebb@gmail.com">andrea.sitiwebb@gmail.com</a></div>
+<div class="riga1"><div class="marchio"><a class="logo" href="../"><svg width="20" height="20" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 29V15a11 11 0 0 1 22 0v14" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M9.8 17.2a9.6 9.6 0 0 1 12.4 0M12.4 21a5.6 5.6 0 0 1 7.2 0" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><circle cx="16" cy="25.2" r="1.9" fill="currentColor"/></svg><span>La bottega del web</span></a><p>Siti per botteghe, artigiani e negozi.</p><p>La bottega del web è il lavoro di Andrea Benporat, Milano.</p><a class="mail" href="mailto:andreasiti@labottegadelweb.it">andreasiti@labottegadelweb.it</a></div>
 <nav class="nav" aria-label="Piè di pagina"><a href="../esempi/">Esempi</a><a href="../prezzi/">Prezzi</a><a href="../come-lavoro/">Come lavoro</a><a href="../domande/">Domande</a><a href="../contatti/">Contatti</a></nav></div>
 <div class="riga2"><span>© 2026 La bottega del web</span><a href="../privacy/">Privacy</a><a href="../cookie/">Cookie</a><!-- DA INSERIRE: P.IVA, se/quando aperta (vedi 01-piano/sito-ufficiale-LANCIO.md) --></div>
 </div></footer>
