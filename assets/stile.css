@@ -671,3 +671,74 @@ p{text-wrap:pretty}
   .hero .azioni,.hero .garanzie{justify-content:flex-start}
   .hero-foto{aspect-ratio:4/5;max-height:min(72vh,720px);justify-self:end;width:100%}
 }
+
+/* ===== 5.1: cinque aggiunte ===== */
+/* 1. selettore di attività sopra la giostra */
+.scegli{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px;margin-top:clamp(28px,4vw,48px)}
+.scegli-et{font-stretch:72%;font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--t2);margin-right:6px}
+.scegli-b{min-height:42px;padding:0 18px;border-radius:999px;border:1.5px solid var(--linea-forte);background:#fff;color:var(--ink);font:600 15px/1 var(--sans);cursor:pointer;transition:background .25s,color .25s,border-color .25s,transform .25s var(--ease)}
+.scegli-b:hover{border-color:var(--ink);transform:translateY(-1px)}
+.scegli-b.attivo{background:var(--ink);color:#fff;border-color:var(--ink)}
+.scegli-veri{border-style:dashed}
+@media (prefers-reduced-motion:no-preference){.scegli{animation:entra 1s var(--ease) both .4s}}
+.giostra-tel.in-evidenza .tel{box-shadow:var(--om-tel),0 0 0 4px var(--oro)}
+.giostra-nota{margin-top:18px}
+/* 3. cosa vede chi ti cerca */
+.cerca{margin-top:28px;max-width:520px;background:#fff;border:1.5px solid var(--linea);border-radius:var(--r-l);padding:18px 20px 20px;box-shadow:var(--om-1)}
+.cerca-testa{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}
+.cerca-et{font-stretch:72%;font-weight:700;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--t3)}
+.cerca-sw{display:inline-flex;padding:3px;border-radius:999px;background:var(--sabbia)}
+.cerca-b{min-height:34px;padding:0 14px;border:0;border-radius:999px;background:transparent;color:var(--t2);font:700 13.5px/1 var(--sans);cursor:pointer;transition:background .25s,color .25s}
+.cerca-b.attivo{background:var(--ink);color:#fff}
+.cerca-barra{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:999px;background:var(--osso);border:1px solid var(--linea);font-size:14.5px;color:var(--ink)}
+.cerca-ris{display:grid;gap:8px;margin-top:12px;padding:16px;border-radius:14px;border:1px solid var(--linea);background:var(--osso);transition:opacity .35s}
+.cerca-ris b{font-size:17px;letter-spacing:-.01em}
+.cerca-ris>span{color:var(--t2);font-size:15px;line-height:1.45}
+.cerca-ris em{display:flex;flex-wrap:wrap;gap:6px;font-style:normal;margin-top:4px}
+.cerca-ris em i{font-style:normal;font-size:13px;font-weight:700;padding:6px 12px;border-radius:999px;background:var(--blu);color:var(--oro)}
+.cerca-ris em.rosso i{background:rgba(214,58,42,.1);color:var(--corallo-t)}
+.cerca-senza{border-style:dashed;border-color:var(--linea-forte)}
+.cerca-senza b{color:var(--corallo-t)}
+/* 5. etichette sotto ogni passo */
+.passo-nota{margin-top:auto;padding-top:14px;border-top:1px solid rgba(255,255,255,.12);font-stretch:72%;font-weight:700;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--oro);display:flex;align-items:center;gap:8px}
+.passo-nota::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--oro);flex:none}
+.passi li.ultimo .passo-nota{border-top-color:rgba(17,19,24,.18);color:var(--ink)}
+.passi li.ultimo .passo-nota::before{background:var(--ink)}
+.passi li::before{margin-bottom:0}
+.passi li{gap:10px}
+.passi li .quando{margin-top:auto}
+/* 2. calcolatore */
+.calc{margin-top:28px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(24px,4vw,56px);padding:clamp(24px,3.4vw,44px);border-radius:var(--r-xl);background:#fff;border:1.5px solid var(--linea);box-shadow:var(--om-1)}
+.calc .et{margin-bottom:14px}
+.calc-h{font-stretch:118%;font-weight:800;font-size:clamp(26px,2.4vw,36px);letter-spacing:-.035em;line-height:1;margin-bottom:10px}
+.calc-pk{display:inline-flex;padding:3px;border-radius:999px;background:var(--sabbia);margin:18px 0 20px}
+.calc-b{min-height:40px;padding:0 16px;border:0;border-radius:999px;background:transparent;color:var(--t2);font:700 14px/1 var(--sans);cursor:pointer;transition:background .25s,color .25s}
+.calc-b.attivo{background:var(--ink);color:#fff}
+.calc-l{display:grid;gap:8px;margin-top:16px;font-size:15px;color:var(--t2)}
+.calc-l span{display:flex;justify-content:space-between;gap:12px}
+.calc-l b{color:var(--ink);font-variant-numeric:tabular-nums}
+.calc-l input[type=range]{width:100%;accent-color:var(--blu);height:28px}
+.calc-dx{display:grid;gap:16px;align-content:start}
+.calc-r{display:grid;gap:8px}
+.calc-rt{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.calc-rt b{font-size:17px}
+.calc-rt span{color:var(--t3);font-size:13.5px;text-align:right;max-width:28ch}
+.calc-r strong{font-stretch:118%;font-weight:800;font-size:clamp(30px,3vw,42px);letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.calc-barra{display:block;height:12px;border-radius:6px;background:var(--sabbia);overflow:hidden}
+.calc-barra i{display:block;height:100%;width:var(--l);background:var(--blu);border-radius:6px;transition:width .5s var(--ease)}
+.calc-barra i.calc-altro{background:repeating-linear-gradient(135deg,#9A968A 0 6px,#B3AFA3 6px 12px)}
+.calc-esito{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;border-radius:14px;background:var(--blu);color:#fff}
+.calc-esito strong{font-stretch:118%;font-weight:800;font-size:clamp(24px,2.4vw,34px);letter-spacing:-.035em;color:var(--oro);font-variant-numeric:tabular-nums}
+.calc-nota{font-size:13.5px;color:var(--t3)}
+/* 4. filtro degli esempi */
+.filtro{display:flex;flex-wrap:wrap;gap:8px;margin:-16px 0 28px}
+.filtro-b{min-height:42px;padding:0 18px;border-radius:999px;border:1.5px solid var(--linea-forte);background:#fff;color:var(--ink);font:600 15px/1 var(--sans);cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.filtro-b.attivo{background:var(--ink);color:#fff;border-color:var(--ink)}
+.carta.nascosta{display:none}
+.carta-vis.solo-tel{display:flex;justify-content:center;align-items:flex-end;gap:clamp(14px,2vw,28px);padding:0}
+.carta-vis.solo-tel .tel{position:static;width:min(44%,230px);box-shadow:var(--om-tel)}
+.carta-vis.solo-tel .tel+.tel{transform:translateY(28px)}
+.carta:hover .carta-vis.solo-tel .tel{transform:translateY(-8px) rotate(-2deg)}
+.carta:hover .carta-vis.solo-tel .tel+.tel{transform:translateY(20px) rotate(2deg)}
+@media (max-width:899px){.calc{grid-template-columns:minmax(0,1fr)}.scegli{justify-content:flex-start}.scegli-et{width:100%}}
+@media (max-width:759px){.calc-b{font-size:13px;white-space:nowrap;padding:0 12px}.calc-rt{display:grid;gap:4px}.calc-rt span{text-align:left;max-width:none}.scegli-b{font-size:14px;padding:0 14px}}

@@ -19,6 +19,7 @@
       if(!tr){g+=8.2*dt+vel*dt;vel*=Math.pow(.02,dt)}
       an.style.setProperty("--g",g.toFixed(2)+"deg");requestAnimationFrame(passo)}
     requestAnimationFrame(passo);
+    an.addEventListener("vai",function(e){var da=g,a=e.detail,t0=null;tr=true;vel=0;function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/900);k=1-Math.pow(1-k,3);g=da+(a-da)*k;an.style.setProperty("--g",g.toFixed(2)+"deg");if(k<1)requestAnimationFrame(f);else setTimeout(function(){tr=false},2600)}requestAnimationFrame(f)});
     an.addEventListener("pointerdown",function(e){if(e.button)return;x0=xp=e.clientX;tp=e.timeStamp;mosso=false;tr=true;vel=0;an.classList.add("trascino");an.setPointerCapture(e.pointerId)});
     an.addEventListener("pointermove",function(e){if(x0===null)return;var d=e.clientX-xp,dt=(e.timeStamp-tp)/1000;if(Math.abs(e.clientX-x0)>4)mosso=true;g+=d*.35;if(dt>0)vel=(d*.35)/dt;xp=e.clientX;tp=e.timeStamp;an.style.setProperty("--g",g.toFixed(2)+"deg")});
     function fine_(){if(x0===null)return;x0=null;tr=false;vel=Math.max(-400,Math.min(400,vel));an.classList.remove("trascino")}
@@ -43,4 +44,31 @@
       fermo.addEventListener("click",function(e){if(om){e.preventDefault();e.stopPropagation()}},true)}}
   /* pulsanti magnetici */
   if(fine&&!ridotto){document.querySelectorAll(".btn").forEach(function(el){el.addEventListener("pointermove",function(e){var r=el.getBoundingClientRect(),x=(e.clientX-r.left-r.width/2)/r.width,y=(e.clientY-r.top-r.height/2)/r.height;el.style.translate=(x*10)+"px "+(y*8)+"px"});el.addEventListener("pointerleave",function(){el.style.translate=""})})}
+})();
+/* ===== 5.1: selettore di attività, cosa vede chi ti cerca, calcolatore, filtro esempi ===== */
+(function(){
+  /* 1. selettore: porta davanti il telefono scelto */
+  var sc=document.querySelectorAll(".scegli-b"),an=document.querySelector(".giostra-anello"),tels=document.querySelectorAll(".giostra-tel");
+  if(sc.length&&an){sc.forEach(function(b){b.addEventListener("click",function(){var n=+b.dataset.n;sc.forEach(function(x){x.classList.toggle("attivo",x===b)});tels.forEach(function(t,i){t.classList.toggle("in-evidenza",b.classList.contains("scegli-veri")?(i%2===1):i===n)});
+    /* angolo che porta l'elemento n davanti: -n*51.43 (mod 360), scegliendo il verso più corto */
+    var g=parseFloat(an.style.getPropertyValue("--g"))||0,target=-n*51.43,d=((target-g)%360+540)%360-180;an.dispatchEvent(new CustomEvent("vai",{detail:g+d}))})})}
+  /* 3. con o senza sito */
+  var cb=document.querySelectorAll(".cerca-b");
+  cb.forEach(function(b){b.addEventListener("click",function(){cb.forEach(function(x){x.classList.toggle("attivo",x===b)});var m=b.dataset.m;document.querySelector(".cerca-con").hidden=m!=="con";document.querySelector(".cerca-senza").hidden=m!=="senza"})});
+  /* 2. calcolatore */
+  var mese=document.getElementById("calc-mese"),iniz=document.getElementById("calc-iniz");
+  if(mese&&iniz){var pk="base",E=function(n){return Math.round(n).toLocaleString("it-IT")+" €"};
+    function calc(){var m=+mese.value,i=+iniz.value,dom=12.5,noi=pk==="base"?249+3*dom:449+2*dom,altro=i+m*36;
+      document.getElementById("calc-m").textContent=E(m);document.getElementById("calc-i").textContent=E(i);
+      document.getElementById("calc-bn").textContent=pk==="base"?"249 € una volta più il dominio, circa 10-15 € l'anno":"449 € una volta, primo anno di dominio incluso, poi circa 10-15 € l'anno";
+      document.getElementById("calc-bt").textContent="circa "+E(noi);
+      document.getElementById("calc-an").textContent=(i?E(i)+" all'inizio più ":"")+m+" € al mese per 36 mesi";
+      document.getElementById("calc-at").textContent=E(altro);
+      var mx=Math.max(noi,altro,1);document.getElementById("calc-bb").style.setProperty("--l",(noi/mx*100).toFixed(1)+"%");document.querySelector(".calc-altro").style.setProperty("--l",(altro/mx*100).toFixed(1)+"%");
+      var d=altro-noi,el=document.getElementById("calc-d");el.textContent=d>=0?"circa "+E(d)+" in meno":"circa "+E(-d)+" in più";el.parentElement.classList.toggle("peggio",d<0)}
+    mese.addEventListener("input",calc);iniz.addEventListener("input",calc);
+    document.querySelectorAll(".calc-b").forEach(function(b){b.addEventListener("click",function(){pk=b.dataset.pk;document.querySelectorAll(".calc-b").forEach(function(x){x.classList.toggle("attivo",x===b)});calc()})});calc()}
+  /* 4. filtro esempi */
+  var fb=document.querySelectorAll(".filtro-b");
+  fb.forEach(function(b){b.addEventListener("click",function(){fb.forEach(function(x){x.classList.toggle("attivo",x===b)});var f=b.dataset.f,k=0;document.querySelectorAll(".pila .carta").forEach(function(c){var v=f==="tutti"||c.dataset.t===f;c.classList.toggle("nascosta",!v);if(v){c.style.setProperty("--k",k++)}})})});
 })();
