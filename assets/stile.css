@@ -745,3 +745,4 @@ p{text-wrap:pretty}
 @media (max-width:899px){.calc{grid-template-columns:minmax(0,1fr)}.scegli{justify-content:flex-start}.scegli-et{width:100%}}
 @media (max-width:759px){.calc-b{font-size:13px;white-space:nowrap;padding:0 12px}.calc-rt{display:grid;gap:4px}.calc-rt span{text-align:left;max-width:none}.scegli-b{font-size:14px;padding:0 14px}}
 
+#prezzi{padding-bottom:clamp(28px,4vw,48px)}#dopo{padding-top:0}
