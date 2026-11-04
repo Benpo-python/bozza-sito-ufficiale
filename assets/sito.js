@@ -58,9 +58,9 @@
   /* 2. calcolatore */
   var mese=document.getElementById("calc-mese"),iniz=document.getElementById("calc-iniz");
   if(mese&&iniz){var pk="base",E=function(n){return Math.round(n).toLocaleString("it-IT")+" €"};
-    function calc(){var m=+mese.value,i=+iniz.value,dom=12.5,noi=pk==="base"?249+3*dom:449+2*dom,altro=i+m*36;
+    function calc(){var m=+mese.value,i=+iniz.value,dom=12.5,noi=pk==="base"?349+3*dom:590+2*dom,altro=i+m*36;
       document.getElementById("calc-m").textContent=E(m);document.getElementById("calc-i").textContent=E(i);
-      document.getElementById("calc-bn").textContent=pk==="base"?"249 € una volta più il dominio, circa 10-15 € l'anno":"449 € una volta, primo anno di dominio incluso, poi circa 10-15 € l'anno";
+      document.getElementById("calc-bn").textContent=pk==="base"?"349 € una volta più il dominio, circa 10-15 € l'anno":"590 € una volta, primo anno di dominio incluso, poi circa 10-15 € l'anno";
       document.getElementById("calc-bt").textContent="circa "+E(noi);
       document.getElementById("calc-an").textContent=(i?E(i)+" all'inizio più ":"")+m+" € al mese per 36 mesi";
       document.getElementById("calc-at").textContent=E(altro);
